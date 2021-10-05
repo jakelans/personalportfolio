@@ -84,13 +84,13 @@ html {
   margin-top: 2rem;
 }
 
-#contact div a {
+#profile-link {
   margin: 2rem;
   color: black;
   transition: transform 0.3s ease-out;
 }
 
-#contact div a:hover {
+#profile-link:hover {
   transform: translateY(8px);
 }
 
