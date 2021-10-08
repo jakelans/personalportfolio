@@ -62,8 +62,20 @@ html {
 }
 
 .projects {
-  background-color: aqua;
+  text-align: center;
+  padding: 2rem 10rem;
+  background-color:rgb(107, 165, 165);
 }
+
+.project-title{
+  color: white;
+  font-size: 2rem;
+  max-width: 640px;
+  margin: 0 auto 6rem auto;
+  border-bottom: 0.2rem solid white;
+}
+
+
 
 #contact {
   display: flex;
