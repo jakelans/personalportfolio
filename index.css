@@ -125,7 +125,7 @@ figcaption:hover {
   justify-content: center;
   align-items: center;
   height: 20rem;
-  background-color: rgb(111, 111, 111);
+  background-color: rgb(91, 91, 91);
   color: white;
 }
 
@@ -136,6 +136,8 @@ figcaption:hover {
 
 #contact p {
   font-size: large;
+  font-style: italic;
+  font-weight: lighter;
 }
 
 #contact div {
