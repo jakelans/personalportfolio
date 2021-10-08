@@ -11,6 +11,18 @@ html {
   scroll-behavior: smooth;
 }
 
+@media (max-width: 1200px) {
+  html {
+    font-size: 90%;
+  }
+}
+
+@media (max-width: 900px) {
+  html {
+    font-size: 70%;
+  }
+}
+
 .nav {
   display: flex;
   justify-content: flex-end;
@@ -31,7 +43,7 @@ html {
   text-decoration: none;
   color: white;
   padding: 1rem;
-  transition: background-color .5s;
+  transition: background-color 0.5s;
 }
 
 .nav-list a:hover {
@@ -64,18 +76,48 @@ html {
 .projects {
   text-align: center;
   padding: 2rem 10rem;
-  background-color:rgb(107, 165, 165);
+  background-color: rgb(107, 165, 165);
 }
 
-.project-title{
+.project-title {
   color: white;
-  font-size: 2rem;
-  max-width: 640px;
-  margin: 0 auto 6rem auto;
-  border-bottom: 0.2rem solid white;
+  font-size: 3rem;
+  max-width: auto;
+  margin: 0 auto rem auto;
+  border-bottom: 0.1rem solid white;
 }
 
+img {
+  max-width: 300px;
+}
 
+.projects-grid {
+  padding: 4.5rem 0;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.project-tile {
+  margin: 1rem;
+  background-color: rgb(184, 184, 184);
+}
+
+figcaption {
+  padding: 1rem;
+  text-align: center;
+  font-size: large;
+  color: #ffffff;
+  transition: color 0.3s ease-out;
+}
+
+figcaption:hover {
+  color: rgb(122, 95, 203);
+}
+
+.projects {
+  padding-top: 5rem;
+}
 
 #contact {
   display: flex;
@@ -83,6 +125,8 @@ html {
   justify-content: center;
   align-items: center;
   height: 20rem;
+  background-color: rgb(111, 111, 111);
+  color: white;
 }
 
 #contact h1 {
@@ -95,24 +139,28 @@ html {
 }
 
 #contact div {
+  display: flex;
+  justify-content: center;
   margin-top: 2rem;
 }
 
-#profile-link {
+#contact div a {
   margin: 2rem;
-  color: black;
+  color: white;
+  text-shadow: 2px 2px 1px #464646;
   transition: transform 0.3s ease-out;
 }
 
-#profile-link:hover {
-  transform: translateY(8px);
+#contact div a:hover {
+  transform: translateY(-8px);
 }
 
 footer {
+  color: white;
   font-size: 1rem;
   display: flex;
   justify-content: center;
   padding: 1rem;
-  background-color: aquamarine;
-  width: 100%;
+  background-color: rgb(75, 59, 128);
+  width: 100vw;
 }
