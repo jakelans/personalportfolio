@@ -32,7 +32,7 @@ header.appendChild(femaleButton)
 document.body.insertBefore(header, mainContent)
 
 function populateDOM(characters) {
-  // clear the page first, then populate
+ 
   while (mainContent.firstChild) {
     mainContent.removeChild(mainContent.firstChild)
   }
