@@ -3,7 +3,17 @@ margin: 0;
 box-sizing: border-box;
 }
 
+header {
+    padding: 1rem;
+    display: flex;
+    justify-content: center;
+    font-size: xx-large;
+    color: white;
+    background-color:  rgb(75, 59, 128);
+}
+
 #main{
+    margin: 1rem;
     display: flex;
 }
 

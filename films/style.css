@@ -1,20 +1,36 @@
+* {
+  margin: 0;
+}
+
 main {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-  }
-  
-  figure {
-    background-color: aqua;
-  }
-  
-  img {
-      border: 10px solid aqua;
-  }
-  
-  figcaption {
-    text-align: center;
-    font-size: xx-large;
-    background-color: aqua;
-    padding-bottom: .5em;
-  }
+  margin: 1rem;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+header{
+  color: white;
+  display: flex;
+  justify-content: center;
+  padding: 1rem;
+  font-size: xx-large;
+  background-color: rgb(75, 59, 128);
+}
+
+figure {
+  margin: 1rem;
+  background-color: rgb(108, 108, 108);
+}
+
+img {
+    border: 10px solid rgb(108, 108, 108);
+}
+
+figcaption {
+  color: white;
+  text-align: center;
+  font-size: xx-large;
+  background-color: rgb(108, 108, 108);
+  padding-bottom: .5em;
+}
