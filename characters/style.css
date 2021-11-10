@@ -1,6 +1,11 @@
 * {
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
   margin: 0;
   box-sizing: border-box;
+}
+
+body{
+  background-color: rgb(69,69,69);
 }
 
 header {
@@ -30,16 +35,34 @@ button:hover {
 }
 
 figure {
-  background-color: rgb(128, 128, 128);
-  padding: 1em;
-  margin: 1rem;
+  margin: 2rem;
+  background-color: rgb(122, 95, 203);
+  border-radius: 20px;
+  transition: transform 0.4s ease-out;
 }
 
-figure img {
+figure:hover{
+transform:scale(1.2)
+}
+
+img {
   width: 200px;
+  border-radius: 20px;
+
 }
 
 figcaption {
-  font-size: larger;
+  color: white;
   text-align: center;
+  font-size: large;
+  background-color: rgb(122, 95, 203);
+  border-radius: 20px;
+  padding-bottom: .5em;
+}
+
+footer{
+  display: flex;
+  justify-content: center;
+  margin: .5rem;
+  color: white;
 }

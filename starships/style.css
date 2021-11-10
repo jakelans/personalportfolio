@@ -7,14 +7,34 @@ header {
     padding: 1rem;
     display: flex;
     justify-content: center;
-    font-size: xx-large;
+    font-size: 50px;
     color: white;
     background-color:  rgb(75, 59, 128);
+}
+body{
+    background-color: rgb(69, 69, 69);
 }
 
 #main{
     margin: 1rem;
     display: flex;
+}
+
+img{
+margin-bottom: 50rem;
+border-radius: 20px;
+}
+
+li{
+    color: white;
+   background-color: rgb(122, 95, 203);
+   border-radius: 10px;
+   padding: .3rem;
+    margin: .3rem;
+}
+
+li:hover{
+    color: black;
 }
 
 section{
@@ -23,4 +43,11 @@ section{
     align-items: center;
     width: 100%;
 
+}
+
+footer{
+    color: white;
+    display: flex;
+    justify-content: center;
+    padding: .5rem;
 }

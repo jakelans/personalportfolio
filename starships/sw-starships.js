@@ -40,7 +40,7 @@ function populateShipView(shipData) {
   shipImage.addEventListener('error', () => {
     shipImage.hidden = true
     modal.classList.toggle('is-active')
-    missingMessage.textContent = `The ship ${shipData.name} has been canceled.`
+    missingMessage.textContent = `Sorry, ${shipData.name} was totally blown up.`
   })
   shipView.appendChild(shipImage)
 }
