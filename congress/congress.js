@@ -14,8 +14,6 @@ function SimplifiedSenators(senatorArray) {
   })
 }
 
-populateSenatorDiv(SimplifiedSenators(senators))
-
 function populateSenatorDiv(simpleSenators) {
   simpleSenators.forEach(senator => {
     const senFigure = document.createElement('figure')
@@ -29,5 +27,6 @@ function populateSenatorDiv(simpleSenators) {
     senFigure.appendChild(figCaption)
     senatorDiv.appendChild(senFigure)
   })
-
 }
+
+populateSenatorDiv(SimplifiedSenators(senators))
