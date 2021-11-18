@@ -9,6 +9,7 @@ function SimplifiedSenators(senatorArray) {
       id: senator.id,
       name: `${senator.first_name}${middleName}${senator.last_name}`,
       party: senator.party,
+      gender: senator.gender,
       imgURL: `https://www.govtrack.us/static/legislator-photos/${senator.govtrack_id}-100px.jpeg`
     }
   })
@@ -28,5 +29,12 @@ function populateSenatorDiv(simpleSenators) {
     senatorDiv.appendChild(senFigure)
   })
 }
+
+const filterSenators = (prop, value) => SimplifiedSenators(senators).filter(senator => senator[prop] === value)
+
+
+//console.log(filterSenators)
+
+//const mostSeniorSenator = SimplifiedSenators()
 
 populateSenatorDiv(SimplifiedSenators(senators))
