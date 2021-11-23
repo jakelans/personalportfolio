@@ -1,11 +1,42 @@
-*{
-    margin: 0;
-    box-sizing: border-box;
+* {
+  margin: 0;
+  box-sizing: border-box;
+}
+
+.pagetitle{
+  font-size: 50px;
+  padding: 1rem;
+}
+
+header {
+display: flex;
+flex-direction: column;
+justify-content: space-between;
+align-items: center;
+padding: 1rem;
+}
+.facts{
+  padding-left: 5rem;
+  padding-right: 5rem;
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+  width: 100vw;
+  background-color:  rgb(174, 174, 174);
+}
+
+.buttons {
+  display: flex;
+  justify-content: space-between;
+  width: 50%;
+  margin-top: 2rem;
+  
 }
 
 .senators {
   display: flex;
   flex-wrap: wrap;
+  margin-left: 5rem;
+  margin-right: 5rem;
 }
 
 figure {
@@ -13,8 +44,19 @@ figure {
   display: flex;
   flex-direction: column;
   margin: 1em;
+  background-color: rgb(169, 169, 169);
+  padding: .5rem;
+  border-radius: 5px;
 }
 
 figcaption {
   text-align: center;
+  font-size: small;
+  padding-top: .2rem;
+}
+
+footer {
+  display: flex;
+  justify-content: center;
+  margin: 1rem;
 }
