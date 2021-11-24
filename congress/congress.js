@@ -29,6 +29,8 @@ function SimplifiedMembers(chamberFilter) {
 }
 
 function populateSenatorDiv(simpleSenators) {
+
+  
   simpleSenators.forEach((senator) => {
     const senFigure = document.createElement('figure')
     const figImg = document.createElement('img')
@@ -72,5 +74,6 @@ loyaltyHeading.appendChild(cowardList)
 
 //populateSenatorDiv(SimplifiedMembers())
 
-const popSenators = document.querySelector("buttons.senbutton")
-popSenators.addEventListener('click', () => populateSenatorDiv())
+const senButton = document.querySelector('.senbutton')
+senButton.addEventListener('click', () => populateSenatorDiv(sens))
+const sens = senators.filter((sens) => sens.short_title === 'Sen.')
