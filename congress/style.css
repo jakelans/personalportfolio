@@ -7,6 +7,13 @@
   font-size: 50px;
   padding: 1rem;
 }
+main{
+  display: flex;
+  flex-wrap: wrap;
+padding-left: 5rem;
+padding-right: 5rem;
+background-color: rgb(69, 69, 69);
+}
 
 header {
 display: flex;
@@ -14,6 +21,8 @@ flex-direction: column;
 justify-content: space-between;
 align-items: center;
 padding: 1rem;
+background-color: rgb(75, 59, 128);
+color: white;
 }
 .facts{
   padding-left: 5rem;
@@ -21,7 +30,8 @@ padding: 1rem;
   padding-top: 1rem;
   padding-bottom: 1rem;
   width: 100vw;
-  background-color:  rgb(174, 174, 174);
+  background-color:  rgb(69, 69, 69);
+  color: white;
 }
 
 .buttons {
@@ -29,7 +39,7 @@ padding: 1rem;
   justify-content: space-between;
   width: 50%;
   margin-top: 2rem;
-  
+  color: white;
 }
 
 .senators {
@@ -44,7 +54,7 @@ figure {
   display: flex;
   flex-direction: column;
   margin: 1em;
-  background-color: rgb(169, 169, 169);
+  background-color: rgb(118, 99, 182);
   padding: .5rem;
   border-radius: 5px;
 }

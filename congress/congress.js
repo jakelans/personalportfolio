@@ -29,7 +29,7 @@ function SimplifiedMembers(chamberFilter) {
 }
 
 function populateSenatorDiv(simpleSenators) {
-
+  removeChildren(main)
   
   simpleSenators.forEach((senator) => {
     const senFigure = document.createElement('figure')
@@ -42,6 +42,8 @@ function populateSenatorDiv(simpleSenators) {
     senFigure.appendChild(figImg)
     senFigure.appendChild(figCaption)
     senatorDiv.appendChild(senFigure)
+
+    main.appendChild(senFigure)
   })
 }
 
@@ -74,6 +76,18 @@ loyaltyHeading.appendChild(cowardList)
 
 //populateSenatorDiv(SimplifiedMembers())
 
+//const senButton = document.querySelector('.senbutton')
+//senButton.addEventListener('click', () => populateSenatorDiv(sens))
+//const sens = SimplifiedMembers((senators) => senators.short_title === 'Sen.')
+
 const senButton = document.querySelector('.senbutton')
-senButton.addEventListener('click', () => populateSenatorDiv(sens))
-const sens = senators.filter((sens) => sens.short_title === 'Sen.')
+senButton.addEventListener('click', () => populateSenatorDiv(SimplifiedMembers('Sen.')))
+
+const repButton = document.querySelector('.repbutton')
+repButton.addEventListener('click', () => populateSenatorDiv(SimplifiedMembers('Rep.')))
+
+const conButton = document.querySelector('.conbutton')
+conButton.addEventListener('click', () => populateSenatorDiv(SimplifiedMembers('R')))
+
+const libButton = document.querySelector('.libbutton')
+libButton.addEventListener('click', () => populateSenatorDiv(SimplifiedMembers('D')))
