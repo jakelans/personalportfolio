@@ -1,16 +1,18 @@
 function getAPIData(url) {
     try {
-      return fetch(url).then(data => data.json())
+      return fetch(url).then((data) => data.json())
     } catch (error) {
       console.error(error)
     }
   }
   
-  getAPIData(`https://pokeapi.co/api/v2/pokemon?limit=25`)
-  .then( async (data) => {
+  getAPIData(`https://pokeapi.co/api/v2/pokemon/?limit=25`)
+  .then((data) => {
+    console.log(data.results)
     for (const pokemon of data.results) {
-      await getAPIData(pokemon.url).then(pokeData => populatePokeCards(pokeData))
+      getAPIData(pokemon.url).then(pokeData => populatePokeCards(pokeData))
     }
+    
   })
   
   const pokeGrid = document.querySelector('.pokeGrid')
@@ -20,8 +22,9 @@ function getAPIData(url) {
     pokeScene.className = 'scene'
     const pokeCard = document.createElement('div')
     pokeCard.className = 'card'
-    pokeCard.addEventListener('click', () => pokeCard.classList.toggle('is-flipped'))
-    
+    pokeCard.addEventListener('click', () => 
+      pokeCard.classList.toggle('is-flipped')
+    )
     const front = populateCardFront(singlePokemon)
     const back = populateCardBack(singlePokemon)
   
@@ -36,7 +39,6 @@ function getAPIData(url) {
     pokeFront.className = 'cardFace front'
     const pokeImg = document.createElement('img')
     pokeImg.src = `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/${pokemon.id}.png`
-  
     const pokeCaption = document.createElement('figcaption')
     pokeCaption.textContent = pokemon.name
     pokeFront.appendChild(pokeImg)
@@ -49,13 +51,13 @@ function getAPIData(url) {
     pokeBack.className = 'cardFace back'
     const label = document.createElement('h4')
     label.textContent = 'Abilities:'
-    pokeBack.appendChild(label)
     const abilityList = document.createElement('ul')
-    pokemon.abilities.forEach((abilityItem) => {
-      let listItem = document.createElement('li')
-      listItem.textContent = abilityItem.ability.name
-      abilityList.appendChild(listItem)
+    pokemon.abilities.forEach((ability) => {
+      let abilityItem = document.createElement('li')
+      abilityItem.textContent = ability.ability.name
+      abilityList.appendChild(abilityItem)
     })
+    pokeBack.appendChild(label)
     pokeBack.appendChild(abilityList)
     return pokeBack
   }
