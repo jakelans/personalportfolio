@@ -98,6 +98,8 @@ function populateCardFront(pokemon) {
 function populateCardBack(pokemon) {
   const pokeBack = document.createElement('div')
   pokeBack.className = 'cardFace back'
+  const pokeImgBack = document.createElement('img')
+  pokeImgBack.src = `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${pokemon.id}.png`
   const label = document.createElement('h4')
   label.textContent = 'Abilities:'
   const abilityList = document.createElement('ul')
@@ -105,6 +107,7 @@ function populateCardBack(pokemon) {
     let abilityItem = document.createElement('li')
     abilityItem.textContent = ability.ability.name
     abilityList.appendChild(abilityItem)
+    pokeBack.appendChild(pokeImgBack)
   })
   pokeBack.appendChild(label)
   pokeBack.appendChild(abilityList)
