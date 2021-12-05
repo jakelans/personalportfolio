@@ -48,10 +48,12 @@ button {
 }
 
 .front {
+  border-radius: 10px;
   background: #2586e1;
 }
 
 .back {
+  border-radius: 10px;
   background: #e9be12;
   transform: rotateY(180deg);
 }
@@ -68,6 +70,20 @@ figcaption {
 
 img {
 margin-left: 52px;
+}
+
+h4{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+ul {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+padding: 0;
 }
 
 li {

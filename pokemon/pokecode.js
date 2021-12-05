@@ -9,6 +9,7 @@ function getAPIData(url) {
 }
 
 function loadPokemon(offset = 0, limit = 25) {
+  removeChildren(pokeGrid)
   getAPIData(
     `https://pokeapi.co/api/v2/pokemon/?limit=${limit}&offset=${offset}`,
   ).then(async (data) => {
@@ -89,7 +90,7 @@ function populateCardFront(pokemon) {
     pokeImg.src = `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/${pokemon.id}.png`
   }
   const pokeCaption = document.createElement('figcaption')
-  pokeCaption.textContent = `${pokemon.id} ${pokemon.name}`
+  pokeCaption.textContent = `${pokemon.name}`
   pokeFront.appendChild(pokeImg)
   pokeFront.appendChild(pokeCaption)
   return pokeFront
