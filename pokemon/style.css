@@ -4,9 +4,11 @@
 }
 
 header {
-  margin: 2rem;
+  color: white;
+  padding: 2rem;
   text-align: center;
   font-size: 35px;
+  background-color: rgb(75, 59, 128);
 }
 
 button {
@@ -15,9 +17,11 @@ button {
 }
 
 .pokeGrid {
+  padding: 2rem;
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
+  background-color: rgb(69, 69, 69);
 }
 
 .scene {
@@ -49,7 +53,7 @@ button {
 
 .front {
   border-radius: 10px;
-  background: #2586e1;
+  background: rgb(118, 99, 182);
 }
 
 .back {
@@ -66,6 +70,7 @@ figure img {
 
 figcaption {
   text-align: center;
+  color: white;
 }
 
 img {
@@ -88,4 +93,11 @@ padding: 0;
 
 li {
   list-style: none;
+}
+
+footer {
+  display: flex;
+  text-align: center;
+  justify-content: center;
+  margin: 1rem;
 }

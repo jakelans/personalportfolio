@@ -46,7 +46,7 @@ newButton.addEventListener('click', () => {
 
 const morePokemon = document.querySelector('.morePokemon')
 morePokemon.addEventListener('click', () => {
-  let startPoint = prompt('Which pokemon ID do we start with?')
+  let startPoint = prompt('Which pokemon ID do we start with? (0 is pokemon ID #1)')
   let howMany = prompt('How many more Pokemon do you want to see?')
   loadPokemon(startPoint, howMany)
 })
@@ -98,9 +98,13 @@ function populateCardFront(pokemon) {
 
 function populateCardBack(pokemon) {
   const pokeBack = document.createElement('div')
-  pokeBack.className = 'cardFace back'
+  pokeBack.className = 'cardFace back' 
   const pokeImgBack = document.createElement('img')
   pokeImgBack.src = `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${pokemon.id}.png`
+  const pokeHeight = document.createElement('h4')
+  pokeHeight.textContent = 'Height:'
+  const height = document.createElement('h4')
+  height.textContent = `${pokemon.height}`
   const label = document.createElement('h4')
   label.textContent = 'Abilities:'
   const abilityList = document.createElement('ul')
@@ -110,6 +114,8 @@ function populateCardBack(pokemon) {
     abilityList.appendChild(abilityItem)
     pokeBack.appendChild(pokeImgBack)
   })
+  pokeBack.appendChild(pokeHeight)
+  pokeBack.appendChild(height)
   pokeBack.appendChild(label)
   pokeBack.appendChild(abilityList)
   return pokeBack
