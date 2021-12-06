@@ -46,7 +46,7 @@ newButton.addEventListener('click', () => {
 
 const morePokemon = document.querySelector('.morePokemon')
 morePokemon.addEventListener('click', () => {
-  let startPoint = prompt('Which pokemon ID do we start with? (0 is pokemon ID #1)')
+  let startPoint = prompt('Which pokemon ID do we start with? (Pokemon ID -1)')
   let howMany = prompt('How many more Pokemon do you want to see?')
   loadPokemon(startPoint, howMany)
 })
@@ -90,7 +90,7 @@ function populateCardFront(pokemon) {
     pokeImg.src = `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/${pokemon.id}.png`
   }
   const pokeCaption = document.createElement('figcaption')
-  pokeCaption.textContent = `${pokemon.name}`
+  pokeCaption.textContent = `${pokemon.name} ${pokemon.id}`
   pokeFront.appendChild(pokeImg)
   pokeFront.appendChild(pokeCaption)
   return pokeFront
@@ -102,9 +102,9 @@ function populateCardBack(pokemon) {
   const pokeImgBack = document.createElement('img')
   pokeImgBack.src = `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${pokemon.id}.png`
   const pokeHeight = document.createElement('h4')
-  pokeHeight.textContent = 'Height:'
+  pokeHeight.textContent = 'Height/Weight:'
   const height = document.createElement('h4')
-  height.textContent = `${pokemon.height}`
+  height.textContent = `${pokemon.height}/${pokemon.weight}`
   const label = document.createElement('h4')
   label.textContent = 'Abilities:'
   const abilityList = document.createElement('ul')
