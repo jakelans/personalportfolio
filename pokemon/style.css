@@ -71,6 +71,11 @@ figure img {
 figcaption {
   text-align: center;
   color: white;
+  font-size: 25px;
+}
+
+figcaption::first-letter{
+  text-transform: capitalize;
 }
 
 img {

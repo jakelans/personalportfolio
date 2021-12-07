@@ -90,7 +90,7 @@ function populateCardFront(pokemon) {
     pokeImg.src = `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/${pokemon.id}.png`
   }
   const pokeCaption = document.createElement('figcaption')
-  pokeCaption.textContent = `${pokemon.name} ${pokemon.id}`
+  pokeCaption.textContent = `${pokemon.name} #${pokemon.id}`
   pokeFront.appendChild(pokeImg)
   pokeFront.appendChild(pokeCaption)
   return pokeFront
