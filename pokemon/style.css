@@ -53,6 +53,10 @@ button {
 }
 
 .front {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
   border-radius: 7px;
   background: rgb(118, 99, 182);
   border: 4px solid;
@@ -68,15 +72,19 @@ button {
 }
 
 figure img {
-  margin-left: 12.5px;
-  margin-top: 1rem;
-  width: 175px;
+  margin: 0;
+  width: 150px;
+  background-color: white;
+  border-radius: 5px;
+  padding-left: 20px;
+  padding-right: 20px;
 }
 
 figcaption {
   text-align: center;
   color: white;
   font-size: 25px;
+  margin-top: 19px;
 }
 
 figcaption::first-letter {
@@ -108,14 +116,14 @@ h4 {
 ul {
   display: flex;
   flex-direction: row;
-  justify-content:space-evenly;
+  justify-content: space-evenly;
   padding: 0;
   line-height: 14px;
   font-size: 12px;
 }
 
 li {
-  list-style:none;
+  list-style: none;
 }
 
 footer {
