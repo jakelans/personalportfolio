@@ -26,41 +26,54 @@ const pokeGrid = document.querySelector('.pokeGrid')
 //   removeChildren(pokeGrid)
    loadPokemon()
 
-const newButton = document.querySelector('.newPokemon')
-newButton.addEventListener('click', () => {
-  let pokeName = prompt('What is the name of your new Pokemon?')
-  let pokeHeight = prompt('What is the height of your Pokemon?')
-  let pokeAbilities = prompt(
-    'What are your Pokemon abilities? (use a comma separated list)',
-  )
-  let newPokemon = new Pokemon(
-    pokeName,
-    pokeHeight,
-    3785,
-    getAbilitiesArray(pokeAbilities),
-  )
-  console.log(newPokemon)
-  populatePokeCard(newPokemon)
-})
+   const newButton = document.querySelector('.newPokemon')
+   newButton.addEventListener('click', () => {
+     let pokeName = prompt('What is the name of your new Pokemon?')
+     let pokeHeight = prompt('What is the height of your Pokemon?')
+     let pokeAbilities = prompt(
+       'What are your Pokemon abilities? (use a comma separated list)',
+     )
+     let pokeTypes = prompt('What are your pokemon types?')
+     let newPokemon = new Pokemon(
+       pokeName,
+       pokeHeight,
+       3785,
+       getAbilitiesArray(pokeAbilities),
+       getTypesArray(pokeTypes)
+     )
+     console.log(newPokemon)
+     populatePokeCard(newPokemon)
+   })
+   
+   const morePokemon = document.querySelector('.morePokemon')
+   morePokemon.addEventListener('click', () => {
+     let startPoint = prompt('Which pokemon ID do we start with?')
+     let howMany = prompt('How many more Pokemon do you want to see?')
+     loadPokemon(startPoint-1, howMany)
+   })
+   
+   function getAbilitiesArray(commaString) {
+     let tempArray = commaString.split(',')
+     console.log(tempArray)
+     return tempArray.map((abilityName) => {
+       return {
+         ability: {
+           name: abilityName,
+         },
+       }
+     })
+   }
 
-const morePokemon = document.querySelector('.morePokemon')
-morePokemon.addEventListener('click', () => {
-  let startPoint = prompt('Which pokemon ID do we start with?')
-  let howMany = prompt('How many more Pokemon do you want to see?')
-  loadPokemon(startPoint-1, howMany)
-})
-
-function getAbilitiesArray(commaString) {
-  let tempArray = commaString.split(',')
-  console.log(tempArray)
-  return tempArray.map((abilityName) => {
-    return {
-      ability: {
-        name: abilityName,
-      },
-    }
-  })
-}
+   function getTypesArray(spacedString) {
+    let tempArray = spacedString.split(' ')
+    return tempArray.map((typeName) => {
+      return {
+        type: {
+          name: typeName,
+        },
+      }
+    })
+  }
 
 function populatePokeCard(singlePokemon) {
   const pokeScene = document.createElement('div')
@@ -92,7 +105,23 @@ function populateCardFront(pokemon) {
   pokeCaption.textContent = `${pokemon.name}`
   pokeFront.appendChild(pokeImg)
   pokeFront.appendChild(pokeCaption)
+
+  pokeFront.addEventListener('mouseover', () => typesBackground(pokemon, pokeFront))
+  pokeFront.addEventListener('mouseleave', () => pokeFront.style.background = 'rgb(118, 99, 182)')
   return pokeFront
+}
+
+
+
+function typesBackground(pokemon, card) {
+  let pokeType1 = pokemon.types[0].type.name
+  let pokeType2 = pokemon.types[1]?.type.name
+  if (!pokeType2) {
+    card.style.setProperty('background', getPokeTypeColor(pokeType1))
+  } else {
+    card.style.setProperty('background',
+    `linear-gradient(${getPokeTypeColor(pokeType1)}, ${getPokeTypeColor(pokeType2)})`)
+  }
 }
 
 function populateCardBack(pokemon) {
@@ -115,20 +144,76 @@ function populateCardBack(pokemon) {
     abilityList.appendChild(abilityItem)
     pokeBack.appendChild(pokeImgBack)
   })
+  const types = document.createElement('h4')
+  types.textContent = 'Type(s)'
+  const pokeTypes = document.createElement('ul')
+  pokemon.types.forEach((pokeType) => {
+    let typeItem = document.createElement('li')
+    typeItem.textContent = pokeType.type.name
+    pokeTypes.appendChild(typeItem)
+  })
   pokeBack.appendChild(pokeId)
   pokeBack.appendChild(pokeHeight)
   pokeBack.appendChild(height)
   pokeBack.appendChild(label)
   pokeBack.appendChild(abilityList)
+  pokeBack.appendChild(types)
+  pokeBack.appendChild(pokeTypes)
+
+typesBackground(pokemon, pokeBack)
+
   return pokeBack
 }
 
 class Pokemon {
-  constructor(name, height, weight, abilities) {
-    ;(this.id = 9001),
-      (this.name = name),
-      (this.height = height),
-      (this.weight = weight),
-      (this.abilities = abilities)
+  constructor(name, height, weight, abilities, types) {
+    this.id = 9001,
+      this.name = name,
+      this.height = height,
+      this.weight = weight,
+      this.abilities = abilities,
+      this.types = types
   }
+}
+
+function getPokeTypeColor(pokeType) {
+  let color
+  switch (pokeType) {
+    case 'grass':
+      color = '#2f8f00'
+      break
+      case 'fire':
+      color = '#FF4C01'
+      break
+      case 'water':
+      color = '#0090ff'
+      break
+      case 'bug':
+      color = '#7fff00'
+      break
+      case 'normal':
+      color = '#E9D2A4'
+      break
+      case 'flying':
+      color = '#88FEFF'
+      break
+      case 'poison':
+      color = '#CE87FF'
+      break
+      case 'electric':
+      color = '#CFE600'
+      break
+      case 'psychic':
+      color = '#e96c95'
+      break
+      case 'ground':
+      color = '#ceb250'
+      break
+      case 'rock':
+      color = '#444444'
+      break
+      default:
+        color = '#999999'
+  }
+  return color
 }

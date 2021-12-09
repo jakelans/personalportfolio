@@ -7,8 +7,13 @@ header {
   color: white;
   padding: 2rem;
   text-align: center;
-  font-size: 35px;
+  font-size: 50px;
   background-color: rgb(75, 59, 128);
+}
+
+h1{
+  padding-bottom: 3rem;
+  padding-top: 2rem;
 }
 
 button {
@@ -63,6 +68,10 @@ button {
   border-color: white;
 }
 
+.front :hover{
+  transition: 1s;
+}
+
 .back {
   border-radius: 7px;
   background: #e9be12;
@@ -85,6 +94,10 @@ figcaption {
   color: white;
   font-size: 25px;
   margin-top: 19px;
+  background-color:rgba(0, 0, 0, 0.3);
+  padding-left: .7rem;
+  padding-right: .7rem;
+  border-radius: 6px;
 }
 
 figcaption::first-letter {
@@ -101,7 +114,7 @@ p {
   display: flex;
   justify-content: center;
   line-height: 20px;
-  margin-bottom: 1px;
+  margin-bottom: 0px;
   font-size: 12px;
 }
 
@@ -111,6 +124,7 @@ h4 {
   align-items: center;
   line-height: 20px;
   font-size: 12px;
+  margin-top: 8px;
 }
 
 ul {
