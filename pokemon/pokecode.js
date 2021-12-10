@@ -8,6 +8,15 @@ function getAPIData(url) {
   }
 }
 
+const searchPokemon = document.querySelector('.searchPokemon')
+  searchPokemon.addEventListener('click', () => {
+    let promptResult = prompt('Enter a Pokemon name (All lowercase) or ID')
+    getAPIData(`https://pokeapi.co/api/v2/pokemon/${promptResult}`).then((pokesearch) =>
+  populatePokeCard(pokesearch))
+  })
+  
+
+
 function loadPokemon(offset = 0, limit = 25) {
   removeChildren(pokeGrid)
   getAPIData(
@@ -30,14 +39,15 @@ const pokeGrid = document.querySelector('.pokeGrid')
    newButton.addEventListener('click', () => {
      let pokeName = prompt('What is the name of your new Pokemon?')
      let pokeHeight = prompt('What is the height of your Pokemon?')
+     let pokeWeight = prompt('What is the weight of your pokemon?')
      let pokeAbilities = prompt(
        'What are your Pokemon abilities? (use a comma separated list)',
      )
-     let pokeTypes = prompt('What are your pokemon types?')
+     let pokeTypes = prompt('What are your pokemon types?(Use spaces and no capital letters)')
      let newPokemon = new Pokemon(
        pokeName,
        pokeHeight,
-       3785,
+       pokeWeight,
        getAbilitiesArray(pokeAbilities),
        getTypesArray(pokeTypes)
      )
@@ -130,7 +140,11 @@ function populateCardBack(pokemon) {
   const pokeId = document.createElement('p')
   pokeId.textContent = `ID# ${pokemon.id}`
   const pokeImgBack = document.createElement('img')
+  if (pokemon.id === 9001) {
+    pokeImgBack.src = '../images/pokeball8bit.png'
+  } else {
   pokeImgBack.src = `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${pokemon.id}.png`
+  }
   const pokeHeight = document.createElement('h4')
   pokeHeight.textContent = 'Height/Weight:'
   const height = document.createElement('p')
