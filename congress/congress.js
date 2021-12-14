@@ -48,7 +48,7 @@ function populateSenatorDiv(simpleSenators) {
   })
 }
 
-const filterSenators = (prop, value) => SimplifiedSenators().filter(senator => senator[prop] === value)
+const filterSenators = (prop, value) => SimplifiedMembers().filter(senator => senator[prop] === value)
 
 //console.log(filterSenators('gender', 'F'))
 
@@ -85,7 +85,7 @@ const repButton = document.querySelector('.repbutton')
 repButton.addEventListener('click', () => populateSenatorDiv(SimplifiedMembers('Rep.')))
 
 const conButton = document.querySelector('.conbutton')
-conButton.addEventListener('click', () => populateSenatorDiv(SimplifiedMembers('R')))
+conButton.addEventListener('click', () => populateSenatorDiv(filterSenators('party', 'R')))
 
 const libButton = document.querySelector('.libbutton')
-libButton.addEventListener('click', () => populateSenatorDiv(SimplifiedMembers('D')))
+libButton.addEventListener('click', () => populateSenatorDiv(filterSenators('party', 'D')))
