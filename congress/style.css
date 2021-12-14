@@ -42,6 +42,12 @@ color: white;
   color: white;
 }
 
+button {
+  align-items: center;
+  margin: 1rem;
+  font-size: 20px;
+}
+
 .senators {
   display: flex;
   flex-wrap: wrap;

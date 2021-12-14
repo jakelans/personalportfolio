@@ -85,9 +85,3 @@ senButton.addEventListener('click', () => populateSenatorDiv(SimplifiedMembers('
 
 const repButton = document.querySelector('.repbutton')
 repButton.addEventListener('click', () => populateSenatorDiv(SimplifiedMembers('Rep.')))
-
-const conButton = document.querySelector('.conbutton')
-conButton.addEventListener('click', () => populateSenatorDiv(SimplifiedMembers('R')))
-
-const libButton = document.querySelector('.libbutton')
-libButton.addEventListener('click', () => populateSenatorDiv(SimplifiedMembers('D')))
