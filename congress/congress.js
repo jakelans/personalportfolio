@@ -9,8 +9,9 @@ const loyaltyHeading = document.querySelector('.mostLoyal')
 const seniorityHeading = document.querySelector('.seniority')
 
 function SimplifiedMembers(chamberFilter) {
-  const filteredArray = members.filter((member) =>
+  const filteredArray = members.filter((member) => 
     chamberFilter ? member.short_title === chamberFilter : member,
+    // chamberFilter ? member.party === chamberFilter : member,
   )
 
   return filteredArray.map((senator) => {
@@ -47,7 +48,7 @@ function populateSenatorDiv(simpleSenators) {
   })
 }
 
-//const filterSenators = (prop, value) => SimplifiedSenators().filter(senator => senator[prop] === value)
+const filterSenators = (prop, value) => SimplifiedSenators().filter(senator => senator[prop] === value)
 
 //console.log(filterSenators('gender', 'F'))
 
@@ -76,12 +77,15 @@ loyaltyHeading.appendChild(cowardList)
 
 //populateSenatorDiv(SimplifiedMembers())
 
-//const senButton = document.querySelector('.senbutton')
-//senButton.addEventListener('click', () => populateSenatorDiv(sens))
-//const sens = SimplifiedMembers((senators) => senators.short_title === 'Sen.')
 
 const senButton = document.querySelector('.senbutton')
 senButton.addEventListener('click', () => populateSenatorDiv(SimplifiedMembers('Sen.')))
 
 const repButton = document.querySelector('.repbutton')
 repButton.addEventListener('click', () => populateSenatorDiv(SimplifiedMembers('Rep.')))
+
+const conButton = document.querySelector('.conbutton')
+conButton.addEventListener('click', () => populateSenatorDiv(SimplifiedMembers('R')))
+
+const libButton = document.querySelector('.libbutton')
+libButton.addEventListener('click', () => populateSenatorDiv(SimplifiedMembers('D')))
